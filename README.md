@@ -23,6 +23,12 @@ Scheme REPL for sending MIDI commands
 
 (**ms:nrpn** *rpn* *value* #:key *channel*)
 
+(**syx:device-identifier**)
+
+(**syx:set-device-identifier!** *id*)
+
+(**xg:system-on** #:key *id*)
+
 ## Enabling completion
 
 Put this in `~/.midi-shell-rc`.
