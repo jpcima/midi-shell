@@ -29,6 +29,12 @@ Scheme REPL for sending MIDI commands
 
 (**xg:system-on** #:key *id*)
 
+(**xg:parameter-change** *address* *data* #:key *id* *model*)
+
+(**xg:parameter-change/u7** *address* *value* #:key *id* *model*)
+
+(**xg:parameter-change/u14** *address* *value* #:key *id* *model*)
+
 ## Enabling completion
 
 Put this in `~/.midi-shell-rc`.
