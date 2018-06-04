@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
       scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/stdlib.scm").c_str()));
       scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/sysex.scm").c_str()));
       scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/xg.scm").c_str()));
+      scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/sy77.scm").c_str()));
     }, &modcontext);
 
 
