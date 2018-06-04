@@ -35,6 +35,8 @@ Scheme REPL for sending MIDI commands
 
 (**xg:parameter-change/u14** *address* *value* #:key *id* *model*)
 
+(**sy77:change-wpbr** *value* #:key *id*)
+
 ## Enabling completion
 
 Put this in `~/.midi-shell-rc`.
