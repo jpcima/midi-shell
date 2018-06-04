@@ -22,3 +22,12 @@ Scheme REPL for sending MIDI commands
 (**ms:rpn** *rpn* *value* #:key *channel*)
 
 (**ms:nrpn** *rpn* *value* #:key *channel*)
+
+## Enabling completion
+
+Put this in `~/.midi-shell-rc`.
+
+```
+(use-modules (ice-9 readline))
+(activate-readline)
+```
