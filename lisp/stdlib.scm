@@ -26,10 +26,10 @@
   val)
 
 (define (ms:channel)
-  channel)
+  *channel*)
 
 (define (ms:velocity)
-  velocity)
+  *velocity*)
 
 (define (ms:set-channel! channel)
   (ensure-range channel 0 15 "channel")

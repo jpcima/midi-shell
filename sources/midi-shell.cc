@@ -35,23 +35,23 @@ int main(int argc, char *argv[])
 
   struct ModuleContext {
     const std::vector<std::string> *scm_args;
-    std::string stdfile;
+    std::string lisp_home;
   } modcontext;
 
-  std::string lisp_home = std::string(PREFIX) + "/share/midi-shell/lisp";
-
   modcontext.scm_args = &scm_args;
-  modcontext.stdfile = lisp_home + "/stdlib.scm";
+  modcontext.lisp_home = std::string(PREFIX) + "/share/midi-shell/lisp";
 
-  if (access(modcontext.stdfile.c_str(), F_OK) != 0) {
-      fprintf(stderr, "Could not find lisp home at '%s'\n", lisp_home.c_str());
+  if (access((modcontext.lisp_home + "/stdlib.scm").c_str(), F_OK) != 0) {
+      fprintf(stderr, "Could not find lisp home at '%s'\n", modcontext.lisp_home.c_str());
       return 1;
   }
 
   scm_c_define_module("midi-shell", [](void *userdata) {
       ModuleContext &modcontext = *(ModuleContext *)userdata;
       scm_c_define_gsubr("ms:write", 1, 0, 0, (scm_t_subr)ms_write);
-      scm_primitive_load(scm_from_utf8_string(modcontext.stdfile.c_str()));
+      scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/stdlib.scm").c_str()));
+      scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/sysex.scm").c_str()));
+      scm_primitive_load(scm_from_utf8_string((modcontext.lisp_home + "/xg.scm").c_str()));
     }, &modcontext);
 
 
